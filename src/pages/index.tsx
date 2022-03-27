@@ -1,8 +1,65 @@
 import React, { FunctionComponent } from 'react'
 import Text from 'components/Text'
+import { graphql } from 'gatsby'
 
-const IndexPage: FunctionComponent = function () {
-  return <Text text="Home" />
+type IndexPageProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: [
+        {
+          node: {
+            id: string
+            frontmatter: {
+              title: string
+              summary: string
+              date: string
+              categories: string[]
+              thumbnail: {
+                publicURL: string
+              }
+            }
+          }
+        },
+      ]
+    }
+  }
+}
+
+const IndexPage: FunctionComponent<IndexPageProps> = function ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) {
+  console.log(edges) //markdown의 내용이 잘 찍히는지 확인
+  return (
+    <div>
+      <Text text="Hello, World!" />
+      <a href="/info/">To Info</a>
+    </div>
+  )
 }
 
 export default IndexPage
+
+export const getPostList = graphql`
+  query getPostList {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            summary
+            date(formatString: "YYYY.MM.DD.")
+            categories
+            thumbnail {
+              publicURL
+            }
+          }
+        }
+      }
+    }
+  }
+`
