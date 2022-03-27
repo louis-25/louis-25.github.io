@@ -6,6 +6,7 @@ import GlobalStyle from 'components/Common/GlobalStyle'
 import ProfileImage from 'components/Main/ProfileImage'
 import Introduction from 'components/Main/Introduction'
 import Footer from 'components/Common/Footer'
+import CategoryList from 'components/Main/CategoryList'
 
 type IndexPageProps = {
   data: {
@@ -35,6 +36,11 @@ const Container = styled.div`
   flex-direction: column;
   height: 100%;
 `
+const CATEGORY_LIST = {
+  All: 5,
+  Web: 3,
+  Mobile: 2,
+}
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   data: {
@@ -46,6 +52,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     <Container>
       <GlobalStyle />
       <Introduction />
+      <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} />
       <Footer />
     </Container>
   )
