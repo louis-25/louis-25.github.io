@@ -1,6 +1,10 @@
 import React, { FunctionComponent } from 'react'
 import Text from 'components/Text'
 import { graphql } from 'gatsby'
+import styled from '@emotion/styled'
+import GlobalStyle from 'components/Common/GlobalStyle'
+import ProfileImage from 'components/Main/ProfileImage'
+import Introduction from 'components/Main/Introduction'
 
 type IndexPageProps = {
   data: {
@@ -25,6 +29,12 @@ type IndexPageProps = {
   }
 }
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   data: {
     allMarkdownRemark: { edges },
@@ -32,10 +42,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 }) {
   console.log(edges) //markdown의 내용이 잘 찍히는지 확인
   return (
-    <div>
-      <Text text="Hello, World!" />
-      <a href="/info/">To Info</a>
-    </div>
+    <Container>
+      <GlobalStyle />
+      <Introduction />
+    </Container>
   )
 }
 
