@@ -7,27 +7,12 @@ import ProfileImage from 'components/Main/ProfileImage'
 import Introduction from 'components/Main/Introduction'
 import Footer from 'components/Common/Footer'
 import CategoryList from 'components/Main/CategoryList'
-import PostList from 'components/Main/PostList'
+import PostList, { PostType } from 'components/Main/PostList'
 
 type IndexPageProps = {
   data: {
     allMarkdownRemark: {
-      edges: [
-        {
-          node: {
-            id: string
-            frontmatter: {
-              title: string
-              summary: string
-              date: string
-              categories: string[]
-              thumbnail: {
-                publicURL: string
-              }
-            }
-          }
-        },
-      ]
+      edges: PostType[]
     }
   }
 }
@@ -54,7 +39,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <GlobalStyle />
       <Introduction />
       <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} />
-      <PostList />
+      <PostList posts={edges} />
       <Footer />
     </Container>
   )
