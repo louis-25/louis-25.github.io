@@ -8,8 +8,12 @@ import CategoryList from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { PostListItemType } from 'types/PostItem.types'
+import queryString, { ParsedQuery } from 'query-string'
 
 type IndexPageProps = {
+  location: {
+    search: string
+  }
   data: {
     allMarkdownRemark: {
       edges: PostListItemType[]
@@ -34,6 +38,7 @@ const CATEGORY_LIST = {
 }
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
+  location: { search },
   data: {
     allMarkdownRemark: { edges },
     file: {
@@ -41,13 +46,22 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
-  console.log(edges) //markdown의 내용이 잘 찍히는지 확인
+  // URL쿼리 파싱
+  const parsed: ParsedQuery<string> = queryString.parse(search)
+  const selectedCategory: string =
+    typeof parsed.category !== 'string' || !parsed.category //category값 가져오기
+      ? 'All'
+      : parsed.category
+
   return (
     <Container>
       <GlobalStyle />
       <Introduction profileImage={gatsbyImageData} />
-      <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} />
-      <PostList selectedCategory="Web" posts={edges} />
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={CATEGORY_LIST}
+      />
+      <PostList selectedCategory={selectedCategory} posts={edges} />
       <Footer />
     </Container>
   )
