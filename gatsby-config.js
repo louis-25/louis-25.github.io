@@ -18,7 +18,7 @@ module.exports = {
     `gatsby-plugin-image`, // GatsbyImage태그 사용하여 이미지 출력
     `gatsby-transformer-sharp`, // gatsby-plugin-image와 호환되는 GraphQL유형 필드 제공
     {
-      // 이미지 최적화
+      // 이미지 최적화 및 GraphQL에 추가
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
@@ -41,6 +41,14 @@ module.exports = {
       options: {
         name: `contents`,
         path: `${__dirname}/contents`,
+      },
+    },
+    {
+      // static폴더의 이미지 인식
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static`,
       },
     },
     {
