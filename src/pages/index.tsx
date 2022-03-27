@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import ProfileImage from 'components/Main/ProfileImage'
 import Introduction from 'components/Main/Introduction'
+import Footer from 'components/Common/Footer'
 
 type IndexPageProps = {
   data: {
@@ -45,6 +46,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     <Container>
       <GlobalStyle />
       <Introduction />
+      <Footer />
     </Container>
   )
 }
