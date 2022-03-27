@@ -15,9 +15,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`, // GatsbyImage태그 사용하여 이미지 출력
+    `gatsby-transformer-sharp`, // gatsby-plugin-image와 호환되는 GraphQL유형 필드 제공
+    {
+      // 이미지 최적화
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: ['auto', 'webp'],
+          quality: 100,
+          placeholder: 'blurred',
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -51,6 +61,7 @@ module.exports = {
             },
           },
           {
+            // gatsby-plugin-image에서 사용될 데이터
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 768,
