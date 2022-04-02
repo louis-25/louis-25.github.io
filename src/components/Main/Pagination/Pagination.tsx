@@ -1,60 +1,47 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import classNames from 'classnames'
+import './Pagination.scss'
 
 type PagenationProps = {
-  postPerPage: number
-  totalPosts: number
+  postPerPage: number // 한 페이지에 보이는 post
+  totalPosts: number // 총 post수
+  currentPage: number // 현재 페이지
   paginate: Function
 }
 
-const NAV = styled.nav`
-  margin: auto;
-`
-
-const UL = styled.ul`
-  margin: auto;
-  display: flex;
-`
-
-const LI = styled.li`
-  background: #dedede;
-  overflow: hidden;
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
 const Pagination: FunctionComponent<PagenationProps> = ({
   postPerPage,
   totalPosts,
+  currentPage,
   paginate,
 }) => {
-  const pageNumbers = []
+  const pageNumbers = [] // 총 page수
 
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
     pageNumbers.push(i)
   }
   return (
-    <NAV>
-      <UL>
+    <nav>
+      <ul className="pagination">
         {pageNumbers.map(num => (
-          <LI key={num}>
+          <li key={num}>
             <Link
-              onClick={e => {
-                e.preventDefault()
+              className={classNames('pagination_item', {
+                pagination_currPage: currentPage === num,
+              })}
+              onClick={() => {
                 paginate(num)
               }}
               to="/"
             >
               {num}
             </Link>
-          </LI>
+          </li>
         ))}
-      </UL>
-    </NAV>
+      </ul>
+    </nav>
   )
 }
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react'
 import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
+import '../components/index.scss'
 import Introduction from 'components/Main/Introduction'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'

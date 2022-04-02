@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useMemo, useState } from 'react'
 import styled from '@emotion/styled'
 import PostItem from './PostItem'
-import Pagination from './Pagination'
+import Pagination from './Pagination/Pagination'
 import { PostListItemType } from 'types/PostItem.types'
 
 //post에서 사용되는 데이터로 index페이지에서도 형식을 맞춰주기 위해 export로 작성
@@ -46,7 +46,7 @@ const PostList: FunctionComponent<PostListProps> = function ({
   )
 
   const [currentPage, setCurrentPage] = useState(1) // 현재 페이지
-  const [postPerPage] = useState(10) //페이지당 포스트 개수
+  const [postPerPage] = useState(5) //페이지당 포스트 개수
 
   //현재 페이지 가져오기
   const indexOfLastPost: number = currentPage * postPerPage // 1*10 = 10번 포스트
@@ -65,14 +65,14 @@ const PostList: FunctionComponent<PostListProps> = function ({
               frontmatter,
             },
           }: PostListItemType) => (
-            // <div>hello</div>
             <PostItem {...frontmatter} link={slug} key={id} />
           ),
         )}
       </PostListWrapper>
       <Pagination
         postPerPage={postPerPage}
-        totalPosts={posts.length}
+        totalPosts={postListData.length}
+        currentPage={currentPage}
         paginate={paginate}
       />
     </>

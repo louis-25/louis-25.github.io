@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     {
       // typescript 플러그인 추가
       resolve: 'gatsby-plugin-typescript',
