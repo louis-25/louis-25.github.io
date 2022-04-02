@@ -34,7 +34,7 @@ const Pagination: FunctionComponent<PagenationProps> = ({
               onClick={() => {
                 paginate(num)
               }}
-              to="/"
+              to="/blog"
             >
               {num}
             </Link>

@@ -1,206 +1,166 @@
-/* Reset styles */
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-  box-sizing: border-box;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-html {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  vertical-align: baseline;
-}
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 12px;
-  line-height: 14px;
-  vertical-align: baseline;
-}
+// /* Reset styles */
+// div,
+// span,
+// applet,
+// object,
+// iframe,
+// p,
+// blockquote,
+// pre,
+// a,
+// abbr,
+// acronym,
+// address,
+// big,
+// cite,
+// code,
+// del,
+// dfn,
+// em,
+// img,
+// ins,
+// kbd,
+// q,
+// s,
+// samp,
+// small,
+// strike,
+// strong,
+// sub,
+// sup,
+// tt,
+// var,
+// b,
+// u,
+// i,
+// center,
+// dl,
+// dt,
+// dd,
+// ol,
+// ul,
+// li,
+// fieldset,
+// form,
+// label,
+// legend,
+// table,
+// caption,
+// tbody,
+// tfoot,
+// thead,
+// tr,
+// th,
+// td,
+// article,
+// aside,
+// canvas,
+// details,
+// embed,
+// figure,
+// figcaption,
+// footer,
+// header,
+// hgroup,
+// menu,
+// nav,
+// output,
+// ruby,
+// section,
+// summary,
+// time,
+// mark,
+// audio,
+// video {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font: inherit;
+//   vertical-align: baseline;
+//   box-sizing: border-box;
+// }
+// /* HTML5 display-role reset for older browsers */
+// article,
+// aside,
+// details,
+// figcaption,
+// figure,
+// footer,
+// header,
+// hgroup,
+// menu,
+// nav,
+// section {
+//   display: block;
+// }
+// html {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   vertical-align: baseline;
+// }
+// body {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font-size: 12px;
+//   line-height: 14px;
+//   vertical-align: baseline;
+// }
 ol,
 ul {
   list-style: none;
 }
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-h2,
-h3,
-h4,
-h5 {
-  margin: 20px 0 10px;
-  font-weight: bold;
-}
-h2 {
-  font-size: 24px;
-  margin-bottom: 18px;
-}
-h3 {
-  font-size: 20px;
-}
-h4 {
-  font-size: 16px;
-}
-h5 {
-  font-size: 12px;
-}
-h2:first-of-type,
-h3:first-of-type,
-h4:first-of-type,
-h5:first-of-type {
-  margin-top: 0;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.2;
-}
+// blockquote,
+// q {
+//   quotes: none;
+// }
+// blockquote:before,
+// blockquote:after,
+// q:before,
+// q:after {
+//   content: '';
+// }
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0;
+// }
 
-th,
-td {
-  vertical-align: middle;
-}
-button {
-  outline: none;
-  cursor: pointer;
-  font: inherit;
-}
-input {
-  outline: none;
-  font: inherit;
-}
+// th,
+// td {
+//   vertical-align: middle;
+// }
+// button {
+//   outline: none;
+//   cursor: pointer;
+//   font: inherit;
+// }
+// input {
+//   outline: none;
+//   font: inherit;
+// }
 
-input::input-placeholder {
-  color: #b5bbc2;
-}
-input::-webkit-input-placeholder {
-  color: #b5bbc2;
-}
-input:-ms-input-placeholder {
-  color: #b5bbc2;
-}
+// input::input-placeholder {
+//   color: #b5bbc2;
+// }
+// input::-webkit-input-placeholder {
+//   color: #b5bbc2;
+// }
+// input:-ms-input-placeholder {
+//   color: #b5bbc2;
+// }
 
-textarea {
-  outline: none;
-  font: inherit;
-}
+// textarea {
+//   outline: none;
+//   font: inherit;
+// }
 
-textarea::input-placeholder {
-  color: #b5bbc2;
-}
-textarea::-webkit-input-placeholder {
-  color: #b5bbc2;
-}
-textarea:-ms-input-placeholder {
-  color: #b5bbc2;
-}
+// textarea::input-placeholder {
+//   color: #b5bbc2;
+// }
+// textarea::-webkit-input-placeholder {
+//   color: #b5bbc2;
+// }
+// textarea:-ms-input-placeholder {
+//   color: #b5bbc2;
+// }

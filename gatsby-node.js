@@ -3,7 +3,8 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
-  const output = getConfig().output || {}
+  const config = getConfig()
+  const output = config.output || {}
 
   actions.setWebpackConfig({
     output,
@@ -12,6 +13,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         components: path.resolve(__dirname, 'src/components'),
         utils: path.resolve(__dirname, 'src/utils'),
         hooks: path.resolve(__dirname, 'src/hooks'),
+        static: path.resolve(__dirname, 'static'),
       },
     },
   })

@@ -1,17 +1,16 @@
-import React, { FunctionComponent, useMemo } from 'react'
-import { graphql } from 'gatsby'
-import '../components/index.scss'
-import Introduction from 'components/Blog/Main/Introduction'
+import Template from 'components/Common/Template'
 import CategoryList, {
   CategoryListProps,
 } from 'components/Blog/Main/CategoryList'
 import PostList from 'components/Blog/Main/PostList'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
-import { PostListItemType } from 'types/PostItem.types'
+import React, { FunctionComponent, useMemo } from 'react'
 import queryString, { ParsedQuery } from 'query-string'
-import Template from 'components/Common/Template'
+import { PostListItemType } from 'types/PostItem.types'
+import { graphql } from 'gatsby'
+import NavBar from 'components/Common/Navbar'
 
-type IndexPageProps = {
+type BlogPageProps = {
   location: {
     search: string
   }
@@ -27,7 +26,7 @@ type IndexPageProps = {
   }
 }
 
-const IndexPage: FunctionComponent<IndexPageProps> = function ({
+const blog: FunctionComponent<BlogPageProps> = ({
   location: { search },
   data: {
     allMarkdownRemark: { edges },
@@ -35,7 +34,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       childImageSharp: { gatsbyImageData },
     },
   },
-}) {
+}) => {
   // URL쿼리 파싱
   const parsed: ParsedQuery<string> = queryString.parse(search)
   const selectedCategory: string =
@@ -68,10 +67,9 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       ),
     [],
   )
-
   return (
     <Template>
-      <Introduction profileImage={gatsbyImageData} />
+      <NavBar></NavBar>
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
@@ -81,10 +79,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   )
 }
 
-export default IndexPage
+export default blog
 
-export const getIndexInfo = graphql`
-  query getIndexInfo {
+export const getPostList = graphql`
+  query getPostList {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
     ) {
