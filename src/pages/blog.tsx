@@ -8,7 +8,7 @@ import React, { FunctionComponent, useMemo } from 'react'
 import queryString, { ParsedQuery } from 'query-string'
 import { PostListItemType } from 'types/PostItem.types'
 import { graphql } from 'gatsby'
-import NavBar from 'components/Common/Navbar'
+import Header from 'components/Common/Header'
 
 type BlogPageProps = {
   location: {
@@ -30,9 +30,6 @@ const blog: FunctionComponent<BlogPageProps> = ({
   location: { search },
   data: {
     allMarkdownRemark: { edges },
-    file: {
-      childImageSharp: { gatsbyImageData },
-    },
   },
 }) => {
   // URL쿼리 파싱
@@ -68,8 +65,8 @@ const blog: FunctionComponent<BlogPageProps> = ({
     [],
   )
   return (
-    <Template>
-      <NavBar></NavBar>
+    <Template title="Louis's Blog" description="개발용 블로그입니다">
+      <Header></Header>
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
