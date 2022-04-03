@@ -1,8 +1,6 @@
 import Template from 'components/Common/Template'
-import CategoryList, {
-  CategoryListProps,
-} from 'components/Blog/Main/CategoryList'
-import PostList from 'components/Blog/Main/PostList'
+import CategoryList, { CategoryListProps } from 'components/Blog/CategoryList'
+import PostList from 'components/Blog/PostList'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import React, { FunctionComponent, useMemo } from 'react'
 import queryString, { ParsedQuery } from 'query-string'
