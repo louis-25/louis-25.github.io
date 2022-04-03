@@ -37,7 +37,7 @@ const NavBar: FunctionComponent = function () {
       <Link to="/portfolio/">
         <Text>Portfolio</Text>
       </Link>
-      <Link to="/blog/1/">
+      <Link to="/blog/">
         <Text>Blog</Text>
       </Link>
     </NavBarComponent>

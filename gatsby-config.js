@@ -15,16 +15,7 @@ module.exports = {
         allExtensions: true,
       },
     },
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`, // GatsbyImage태그 사용하여 이미지 출력
-    `gatsby-plugin-advanced-sitemap`,
-    {
-      resolve: 'gatsby-plugin-canonical-urls', // 중복된 페이지에서 가장 대표되는 URL지정해주는 기능
-      options: {
-        siteUrl: '<https://louis-25.github.io/>',
-        stripQueryString: true,
-      },
-    },
     `gatsby-transformer-sharp`, // gatsby-plugin-image와 호환되는 GraphQL유형 필드 제공
     {
       // 이미지 최적화 및 GraphQL에 추가
@@ -98,6 +89,21 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    `gatsby-plugin-react-helmet`, // Meta태그 설정
+    `gatsby-plugin-advanced-sitemap`, // sitemap 웹 접근성 향상
+    {
+      resolve: 'gatsby-plugin-canonical-urls', // 중복된 페이지에서 가장 대표되는 URL지정해주는 기능
+      options: {
+        siteUrl: '<https://louis-25.github.io/>',
+        stripQueryString: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt', // robots.txt 검색엔진 세팅
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
