@@ -88,6 +88,15 @@ module.exports = {
               rel: 'nofollow',
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `anchor-header`,
+              maintainCase: false,
+              removeAccents: true,
+              elements: ['h1', 'h2', 'h3'], // 헤더에 id값 부여
+            },
+          },
         ],
       },
     },

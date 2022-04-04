@@ -58,7 +58,7 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
     <CategoryListWrapper>
       {Object.entries(categoryList).map(([name, count]) => (
         <CategoryItem
-          to={`/?category=${name}`} //카테고리에 맞는 url로 이동
+          to={`/blog/?category=${name}`} //카테고리에 맞는 url로 이동
           active={name === selectedCategory} //선택된 카테고리와 이름이 같으면 스타일 적용
           key={name}
         >

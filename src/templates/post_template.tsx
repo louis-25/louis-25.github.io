@@ -31,6 +31,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
           childImageSharp: { gatsbyImageData },
         },
       },
+      tableOfContents,
     },
   } = edges[0]
 
@@ -42,7 +43,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         categories={categories}
         thumbnail={gatsbyImageData}
       />
-      <PostContent html={html} />
+      <PostContent html={html} toc={tableOfContents} />
       <CommentWidget />
     </Template>
   )
@@ -71,6 +72,7 @@ export const queryMarkdownDataBySlug = graphql`
               }
             }
           }
+          tableOfContents
         }
       }
     }
