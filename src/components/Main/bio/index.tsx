@@ -33,7 +33,7 @@ const Bio: FunctionComponent<BioProps> = function ({
       thumbnail: { Profile },
     },
     social: {
-      portfolio: `https://github.com/louis-25`,
+      portfolio: `https://dh-portfolio.netlify.app/`,
       github: `https://github.com/louis-25`,
       linkedIn: ``,
       email: `20151577@vision.hoseo.edu`,
