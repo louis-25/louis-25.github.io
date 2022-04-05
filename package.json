@@ -14,6 +14,8 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.18",
+    "@mui/icons-material": "^5.5.1",
+    "@mui/material": "^5.5.3",
     "@types/react-helmet": "^6.1.5",
     "babel-loader": "^8.2.4",
     "babel-plugin-emotion": "^11.0.0",
@@ -48,6 +50,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-rotating-text": "^1.4.1",
     "sass": "^1.49.10",
     "sass-loader": "^12.6.0"
   },

@@ -7,6 +7,8 @@ import queryString, { ParsedQuery } from 'query-string'
 import { PostListItemType } from 'types/PostItem.types'
 import { graphql } from 'gatsby'
 import Header from 'components/Common/Header'
+import Title from 'components/Common/Title'
+import styled from '@emotion/styled'
 
 type BlogPageProps = {
   location: {
@@ -62,9 +64,17 @@ const blog: FunctionComponent<BlogPageProps> = ({
       ),
     [],
   )
+  const TitleBox = styled.div`
+    width: 768px;
+    margin: auto;
+  `
+
   return (
     <Template title="Louis's Blog" description="개발용 블로그입니다">
       <Header></Header>
+      <TitleBox>
+        <Title title={`Blog.`} subTitle="Development, Record" />
+      </TitleBox>
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}

@@ -28,17 +28,11 @@ export const NavBarComponent = styled.div`
 const NavBar: FunctionComponent = function () {
   return (
     <NavBarComponent>
-      <Link to="/">
-        <Text>Main</Text>
+      <Link to="/blog/">
+        <Text>Blog</Text>
       </Link>
       <Link to="/about/">
         <Text>About</Text>
-      </Link>
-      <Link to="/portfolio/">
-        <Text>Portfolio</Text>
-      </Link>
-      <Link to="/blog/">
-        <Text>Blog</Text>
       </Link>
     </NavBarComponent>
   )

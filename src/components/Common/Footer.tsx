@@ -1,26 +1,55 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 
-const FooterWrapper = styled.footer`
-  display: grid;
-  place-items: center;
-  margin-top: auto;
+const FooterComponent = styled.footer`
+  background: rgba(0, 0, 0, 0.03);
+  width: 100%;
   padding: 50px 0;
-  font-size: 15px;
-  text-align: center;
-  line-height: 1.5;
+  margin-top: 50px;
 
-  @media (max-width: 768px) {
-    font-size: 13px;
+  body.dark & {
+    background: rgba(0, 0, 0, 0.3);
   }
 `
 
+const FooterContent = styled.div`
+  width: 768px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 20px;
+  }
+`
+
+const ContentLine = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
 const Footer: FunctionComponent = function () {
+  let now = new Date()
+  let year = now.getFullYear()
   return (
-    <FooterWrapper>
-      Thank You for Visiting My Blog, Have a Good Day 😆
-      <br />© 2022 Developer DongHyun, Powered By Gatsby.
-    </FooterWrapper>
+    <FooterComponent>
+      <FooterContent>
+        <ContentLine>
+          <div>
+            <b>Louis's Blog</b>
+          </div>
+        </ContentLine>
+
+        <ContentLine>
+          <div>ⓒ {year} Louis powered by Gatsby</div>
+        </ContentLine>
+      </FooterContent>
+    </FooterComponent>
   )
 }
 
