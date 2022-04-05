@@ -7,12 +7,6 @@ type TableOfContentsProps = {
 }
 
 const TableOfContentsComponent = styled.div`
-  position: absolute;
-  right: 5rem;
-  top: 30rem;
-  width: 250px;
-  height: 100%;
-
   @media (max-width: 1350px) {
     display: none;
   }

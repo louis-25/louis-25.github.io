@@ -46,7 +46,7 @@ const PostList: FunctionComponent<PostListProps> = function ({
   )
 
   const [currentPage, setCurrentPage] = useState(1) // 현재 페이지
-  const [postPerPage] = useState(5) //페이지당 포스트 개수
+  const [postPerPage] = useState(6) //페이지당 포스트 개수
 
   //현재 페이지 가져오기
   const indexOfLastPost: number = currentPage * postPerPage // 1*10 = 10번 포스트

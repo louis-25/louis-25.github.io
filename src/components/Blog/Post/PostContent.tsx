@@ -8,13 +8,27 @@ interface PostContentProps {
   toc: string
 }
 const Content = styled.div`
+  margin: 150px 0;
+  display: grid;
+  grid-template-columns: 768px 250px;
+  grid-gap: 30px;
+
+  @media (max-width: 1350px) {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    margin: 80px 0;
+  }
+`
+const ContentBox = styled.main`
   width: 768px;
-  height: 100%;
-  margin: 80px auto 0;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     width: 100%;
     padding: 0 20px;
+    overflow: auto;
   }
 `
 
@@ -23,10 +37,12 @@ const PostContent: FunctionComponent<PostContentProps> = function ({
   toc,
 }) {
   return (
-    <Content>
-      <Markdown html={html} />
-      <TableOfContents toc={toc} />
-    </Content>
+    <ContentBox>
+      <Content>
+        <Markdown html={html} />
+        <TableOfContents toc={toc} />
+      </Content>
+    </ContentBox>
   )
 }
 
