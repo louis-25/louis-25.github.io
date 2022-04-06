@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import Link, { LinkComponent } from '../atom/Link'
-import Text, { TextComponent } from '../atom/Text'
+import Link, { LinkComponent } from 'components/atom/Link'
+import Text, { TextComponent } from 'components/atom/Text'
 
 export const NavBarComponent = styled.div`
   display: flex;

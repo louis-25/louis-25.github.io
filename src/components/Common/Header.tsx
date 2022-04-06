@@ -22,7 +22,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
   return (
     <HeaderContainer>
       <div>Louis's Blog</div>
-      <NavBar></NavBar>
+      <NavBar />
     </HeaderContainer>
   )
 }

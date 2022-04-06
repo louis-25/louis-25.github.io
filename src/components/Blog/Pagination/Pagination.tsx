@@ -26,18 +26,17 @@ const Pagination: FunctionComponent<PagenationProps> = ({
     <nav>
       <ul className="pagination">
         {pageNumbers.map(num => (
-          <li key={num}>
-            <Link
-              className={classNames('pagination_item', {
-                pagination_currPage: currentPage === num,
-              })}
-              onClick={() => {
-                paginate(num)
-              }}
-              to="/blog"
-            >
-              {num}
-            </Link>
+          <li
+            key={num}
+            className={classNames('pagination_item', {
+              pagination_currPage: currentPage === num,
+            })}
+            onClick={() => {
+              paginate(num)
+              window.scrollTo(0, 0)
+            }}
+          >
+            {num}
           </li>
         ))}
       </ul>
