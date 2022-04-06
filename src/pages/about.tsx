@@ -4,7 +4,9 @@ import '/src/styles/index.scss'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import Template from 'components/Common/Template'
 import Header from 'components/Common/Header'
-import Bio from 'components/Main/bio'
+import Bio from 'components/Common/bio'
+import TimeStampSection from 'components/About/timestamp-section/index'
+import styled from '@emotion/styled'
 
 type IndexPageProps = {
   location: {
@@ -35,6 +37,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     file: { publicURL },
   },
 }) {
+  const InnerBox = styled.div`
+    width: 768px;
+    margin: auto;
+  `
   return (
     <Template
       title={title}
@@ -42,8 +48,11 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <Header></Header>
-      <Bio />
+      <InnerBox>
+        <Header></Header>
+        <Bio />
+        <TimeStampSection />
+      </InnerBox>
     </Template>
   )
 }

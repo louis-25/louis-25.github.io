@@ -64,22 +64,22 @@ const blog: FunctionComponent<BlogPageProps> = ({
       ),
     [],
   )
-  const TitleBox = styled.div`
+  const InnerBox = styled.div`
     width: 768px;
     margin: auto;
   `
 
   return (
     <Template title="Louis's Blog" description="개발용 블로그입니다">
-      <Header></Header>
-      <TitleBox>
+      <InnerBox>
+        <Header></Header>
         <Title title={`Blog.`} subTitle="Development, Record" />
-      </TitleBox>
-      <CategoryList
-        selectedCategory={selectedCategory}
-        categoryList={categoryList}
-      />
-      <PostList selectedCategory={selectedCategory} posts={edges} />
+        <CategoryList
+          selectedCategory={selectedCategory}
+          categoryList={categoryList}
+        />
+        <PostList selectedCategory={selectedCategory} posts={edges} />
+      </InnerBox>
     </Template>
   )
 }

@@ -7,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import AndroidIcon from '@mui/icons-material/Android'
 import AppleIcon from '@mui/icons-material/Apple'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import WebIcon from '@mui/icons-material/Web'
 
 import './style.scss'
 
@@ -14,8 +15,10 @@ function IconButtonBar({ links = {} }) {
   const IconPicker = useCallback(icon => {
     const props = { className: 'icon' }
     switch (icon) {
-      case 'portfolio':
+      case 'post':
         return <DescriptionIcon {...props} />
+      case 'portfolio':
+        return <WebIcon {...props} />
       case 'demo':
         return <PlayIcon {...props} />
       case 'github':
