@@ -23,13 +23,10 @@ type GatsbyLinkProps = {
 const CategoryListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 768px;
-  margin: 100px auto 0;
+  margin: 20px auto 0;
 
   @media (max-width: 768px) {
     width: 100%;
-    margin-top: 50px;
-    padding: 0 20px;
   }
 `
 const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
@@ -46,7 +43,7 @@ const CategoryItem = styled(({ active, ...props }: GatsbyLinkProps) => (
   }
 
   @media (max-width: 768px) {
-    font-size: 15px;
+    // font-size: 15px;
   }
 `
 

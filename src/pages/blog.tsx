@@ -9,6 +9,7 @@ import { graphql } from 'gatsby'
 import Header from 'components/Common/Header'
 import Title from 'components/Common/Title'
 import styled from '@emotion/styled'
+import ProfileSection from 'components/Common/ProfileSection'
 
 type BlogPageProps = {
   location: {
@@ -30,6 +31,9 @@ const blog: FunctionComponent<BlogPageProps> = ({
   location: { search },
   data: {
     allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
   },
 }) => {
   // URL쿼리 파싱
@@ -74,10 +78,12 @@ const blog: FunctionComponent<BlogPageProps> = ({
       <InnerBox>
         <Header></Header>
         <Title title={`Blog.`} subTitle="Development, Record" />
-        <CategoryList
-          selectedCategory={selectedCategory}
-          categoryList={categoryList}
-        />
+        <ProfileSection gatsbyImageData={gatsbyImageData}>
+          <CategoryList
+            selectedCategory={selectedCategory}
+            categoryList={categoryList}
+          />
+        </ProfileSection>
         <PostList selectedCategory={selectedCategory} posts={edges} />
       </InnerBox>
     </Template>

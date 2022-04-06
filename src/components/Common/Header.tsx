@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import NavBar from './Navbar'
+import { Link } from 'gatsby'
 
 type HeaderProps = {}
 
@@ -21,7 +22,7 @@ const HeaderContainer = styled.div`
 const Header: FunctionComponent<HeaderProps> = () => {
   return (
     <HeaderContainer>
-      <div>Louis's Blog</div>
+      <Link to="/">Louis's Blog</Link>
       <NavBar />
     </HeaderContainer>
   )

@@ -7,6 +7,9 @@ import queryString, { ParsedQuery } from 'query-string'
 import { PostListItemType } from 'types/PostItem.types'
 import { graphql } from 'gatsby'
 import Header from 'components/Common/Header'
+import styled from '@emotion/styled'
+import ProfileSection from 'components/Common/ProfileSection'
+import Title from 'components/Common/Title'
 
 type BlogPageProps = {
   location: {
@@ -28,6 +31,9 @@ const blog: FunctionComponent<BlogPageProps> = ({
   location: { search },
   data: {
     allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
   },
 }) => {
   // URL쿼리 파싱
@@ -62,14 +68,23 @@ const blog: FunctionComponent<BlogPageProps> = ({
       ),
     [],
   )
+  const InnerBox = styled.div`
+    width: 768px;
+    margin: auto;
+  `
   return (
     <Template title="Louis's Blog" description="개발용 블로그입니다">
-      <Header></Header>
-      <CategoryList
-        selectedCategory={selectedCategory}
-        categoryList={categoryList}
-      />
-      <PostList selectedCategory={selectedCategory} posts={edges} />
+      <InnerBox>
+        <Header></Header>
+        <Title title={`어서오세요.`} subTitle="Development, Record" />
+        <ProfileSection gatsbyImageData={gatsbyImageData}>
+          <CategoryList
+            selectedCategory={selectedCategory}
+            categoryList={categoryList}
+          />
+        </ProfileSection>
+        <PostList selectedCategory={selectedCategory} posts={edges} />
+      </InnerBox>
     </Template>
   )
 }
