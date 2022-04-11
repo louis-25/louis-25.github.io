@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import ReactRotatingText from 'react-rotating-text'
 import IconButtonBar from '../icon-button-bar'
-import Profile from '/src/images/rakun.png'
+import Profile from '/src/images/profile-image.jpg'
 import './style.scss'
 
 type BioProps = {
@@ -80,7 +80,7 @@ const Bio: FunctionComponent<BioProps> = function ({
         </div>
       )}
       <div className="thumbnail-wrapper">
-        <img style={{ width: '250px', borderRadius: '50%' }} src={Profile} />
+        <img style={{ width: '250px' }} src={Profile} />
       </div>
     </div>
   )

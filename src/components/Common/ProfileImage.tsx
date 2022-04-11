@@ -11,8 +11,8 @@ const PROFILE_IMAGE_LINK =
   'https://dh-portfolio.netlify.app/static/media/profile2.069c763b.jpg'
 
 const ProfileImageWrapper = styled(GatsbyImage)`
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 `
 

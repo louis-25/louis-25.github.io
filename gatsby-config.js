@@ -75,6 +75,10 @@ module.exports = {
               maxWidth: 768,
               quality: 100,
               withWebp: true,
+              wrapperStyle: () => `
+                width: 100%;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+              `,
             },
           },
           {

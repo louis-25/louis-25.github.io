@@ -19,7 +19,7 @@ const Container = styled.main`
   width: auto;
 
   @media (max-width: 768px) {
-    width: fit-content;
+    width: 100%;
   }
 `
 

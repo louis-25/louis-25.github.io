@@ -40,6 +40,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   const InnerBox = styled.div`
     width: 768px;
     margin: auto;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   `
   return (
     <Template

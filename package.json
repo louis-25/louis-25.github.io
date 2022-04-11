@@ -22,6 +22,7 @@
     "babel-preset-gatsby": "^2.11.1",
     "classnames": "^2.3.1",
     "gatsby": "^4.10.3",
+    "gatsby-image": "^3.11.0",
     "gatsby-plugin-advanced-sitemap": "^2.1.0",
     "gatsby-plugin-canonical-urls": "^4.11.0",
     "gatsby-plugin-emotion": "^7.10.0",
@@ -76,7 +77,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build && gh-pages -d public -b deploy -m 구조변경"
+    "deploy": "gatsby build && gh-pages -d public -b deploy -m Update"
   },
   "repository": {
     "type": "git",

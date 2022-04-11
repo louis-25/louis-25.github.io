@@ -18,11 +18,18 @@ const PostItemWrapper = styled(Link)`
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 `
+const ImgBox = styled.div`
+  height: 270px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+`
 
 const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 200px;
-  border-radius: 10px 10px 0 0;
+  max-height: 300px;
+  align-items: center;
+  flex: 8;
 `
 const PostItemContent = styled.div`
   flex: 1;
@@ -90,7 +97,9 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
 }) {
   return (
     <PostItemWrapper to={link}>
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      <ImgBox>
+        <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
+      </ImgBox>
 
       <PostItemContent>
         <Title>{title}</Title>

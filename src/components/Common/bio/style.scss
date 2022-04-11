@@ -16,12 +16,15 @@
 
 .bio {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   width: 768px;
   margin: 120px auto;
 
   color: var(--primary-text-color);
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 
   @include md {
     flex-direction: row;
@@ -99,7 +102,12 @@
   }
 
   .thumbnail-wrapper {
-    display: none;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @include md {
       display: block;

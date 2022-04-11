@@ -71,13 +71,15 @@ const blog: FunctionComponent<BlogPageProps> = ({
   const InnerBox = styled.div`
     width: 768px;
     margin: auto;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   `
 
   return (
     <Template title="Louis's Blog" description="개발용 블로그입니다">
       <InnerBox>
         <Header></Header>
-        <Title title={`Blog.`} subTitle="Development, Record" />
         <ProfileSection gatsbyImageData={gatsbyImageData}>
           <CategoryList
             selectedCategory={selectedCategory}
@@ -110,7 +112,7 @@ export const getPostList = graphql`
             categories
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
+                gatsbyImageData
               }
             }
           }

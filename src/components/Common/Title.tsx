@@ -20,6 +20,7 @@ const TitleComponent = styled.div`
 
   @media (max-width: 768px) {
     margin-bottom: 60px;
+    padding: 0 20px;
   }
 `
 
