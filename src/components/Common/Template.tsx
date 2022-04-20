@@ -17,6 +17,7 @@ const Container = styled.main`
   flex-direction: column;
   height: 100%;
   width: auto;
+  z-index: 2;
 
   @media (max-width: 768px) {
     width: 100%;

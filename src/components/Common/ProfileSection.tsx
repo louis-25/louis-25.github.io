@@ -1,13 +1,18 @@
 import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
-import React, { FunctionComponent, ReactNode } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import queryString, { ParsedQuery } from 'query-string'
+import { useLocation } from '@reach/router'
+import React, { FunctionComponent, ReactNode, useMemo } from 'react'
 import IconButtonBar from './icon-button-bar'
 import ProfileImage from './ProfileImage'
+import CategoryList, { CategoryListProps } from 'components/Blog/CategoryList'
+import { PostListItemType } from 'types/PostItem.types'
 
-type ProfileSectionProps = {
-  gatsbyImageData: IGatsbyImageData
-  children: ReactNode
-}
+// type ProfileSectionProps = {
+//   gatsbyImageData: IGatsbyImageData
+//   children: ReactNode
+// }
 
 const ProfileBox = styled.div`
   position: absolute;
@@ -62,16 +67,80 @@ const social = {
   github: `https://github.com/louis-25`,
   email: `20151577@vision.hoseo.edu`,
 }
-const ProfileSection: FunctionComponent<ProfileSectionProps> = ({
-  gatsbyImageData,
-  children,
-}) => {
+const ProfileSection: FunctionComponent = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              summary
+              date(formatString: "YYYY.MM.DD.")
+              categories
+              thumbnail {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
+      file(name: { eq: "profile-image" }) {
+        childImageSharp {
+          gatsbyImageData(width: 120, height: 120)
+        }
+      }
+    }
+  `)
+  // URL쿼리 파싱
+  const location = useLocation()
+  const parsed: ParsedQuery<string> = queryString.parse(location.search)
+  const selectedCategory: string =
+    typeof parsed.category !== 'string' || !parsed.category //category값 가져오기
+      ? 'All'
+      : parsed.category
+
+  const categoryList = useMemo(
+    () =>
+      data.allMarkdownRemark.edges.reduce(
+        //GraphQL의 edges배열
+        (
+          list: CategoryListProps['categoryList'],
+          {
+            node: {
+              frontmatter: { categories },
+            },
+          }: PostListItemType,
+        ) => {
+          categories.forEach(category => {
+            if (list[category] === undefined) list[category] = 1
+            else list[category]++
+          })
+
+          list['All']++
+
+          return list
+        },
+        { All: 0 },
+      ),
+    [],
+  )
   return (
     <ProfileContainer>
       <ProfileBox>
         <ProfileBox2>
           <ProfileDiv>
-            <ProfileImage profileImage={gatsbyImageData}></ProfileImage>
+            <ProfileImage
+              profileImage={data.file.childImageSharp.gatsbyImageData}
+            ></ProfileImage>
             <ProfileDetail>
               <h2>Louis</h2>
               <IconButtonBar links={social} />
@@ -79,7 +148,10 @@ const ProfileSection: FunctionComponent<ProfileSectionProps> = ({
           </ProfileDiv>
         </ProfileBox2>
         <CategoryWrapper>Category</CategoryWrapper>
-        {children}
+        <CategoryList
+          selectedCategory={selectedCategory}
+          categoryList={categoryList}
+        />
       </ProfileBox>
     </ProfileContainer>
   )

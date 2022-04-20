@@ -1,13 +1,10 @@
 import Template from 'components/Common/Template'
-import CategoryList, { CategoryListProps } from 'components/Blog/CategoryList'
 import PostList from 'components/Blog/PostList'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
-import React, { FunctionComponent, useMemo } from 'react'
+import React, { FunctionComponent } from 'react'
 import queryString, { ParsedQuery } from 'query-string'
 import { PostListItemType } from 'types/PostItem.types'
 import { graphql } from 'gatsby'
 import Header from 'components/Common/Header'
-import Title from 'components/Common/Title'
 import styled from '@emotion/styled'
 import ProfileSection from 'components/Common/ProfileSection'
 
@@ -19,11 +16,6 @@ type BlogPageProps = {
     allMarkdownRemark: {
       edges: PostListItemType[]
     }
-    file: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData
-      }
-    }
   }
 }
 
@@ -31,9 +23,6 @@ const blog: FunctionComponent<BlogPageProps> = ({
   location: { search },
   data: {
     allMarkdownRemark: { edges },
-    file: {
-      childImageSharp: { gatsbyImageData },
-    },
   },
 }) => {
   // URL쿼리 파싱
@@ -43,31 +32,6 @@ const blog: FunctionComponent<BlogPageProps> = ({
       ? 'All'
       : parsed.category
 
-  const categoryList = useMemo(
-    () =>
-      edges.reduce(
-        //GraphQL의 edges배열
-        (
-          list: CategoryListProps['categoryList'],
-          {
-            node: {
-              frontmatter: { categories },
-            },
-          }: PostListItemType,
-        ) => {
-          categories.forEach(category => {
-            if (list[category] === undefined) list[category] = 1
-            else list[category]++
-          })
-
-          list['All']++
-
-          return list
-        },
-        { All: 0 },
-      ),
-    [],
-  )
   const InnerBox = styled.div`
     width: 768px;
     margin: auto;
@@ -80,12 +44,7 @@ const blog: FunctionComponent<BlogPageProps> = ({
     <Template title="Louis's Blog" description="개발용 블로그입니다">
       <InnerBox>
         <Header></Header>
-        <ProfileSection gatsbyImageData={gatsbyImageData}>
-          <CategoryList
-            selectedCategory={selectedCategory}
-            categoryList={categoryList}
-          />
-        </ProfileSection>
+        <ProfileSection></ProfileSection>
         <PostList selectedCategory={selectedCategory} posts={edges} />
       </InnerBox>
     </Template>
@@ -117,11 +76,6 @@ export const getPostList = graphql`
             }
           }
         }
-      }
-    }
-    file(name: { eq: "profile-image" }) {
-      childImageSharp {
-        gatsbyImageData(width: 120, height: 120)
       }
     }
   }

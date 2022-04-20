@@ -11,11 +11,13 @@ const PostItemWrapper = styled(Link)`
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-  transition: 0.3s box-shadow;
   cursor: pointer;
+  transition: 0.15s all ease-in;
 
   &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3);
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 `
 const ImgBox = styled.div`
